@@ -13,7 +13,7 @@ class AtribController {
     asset.atribs.push(atrib);
     await asset.save();
 
-    req.io.sockets.in(box._id).emit("atrib", atrib);
+    req.io.sockets.in(asset._id).emit("atrib", atrib);
     return res.json(atrib);
   }
 }
