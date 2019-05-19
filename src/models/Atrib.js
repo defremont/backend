@@ -20,6 +20,7 @@ const Atrib = new mongoose.Schema(
 );
 
 Atrib.virtual("url").get(function() {
-  return `http://localhost:3333/atribs/${encodeURIComponent(this.path)}`;
+  const url = process.env.URL || "http://localhost:3333";
+  return `${url}/atribs/${encodeURIComponent(this.path)}`;
 });
 module.exports = mongoose.model("Atrib", Atrib);
